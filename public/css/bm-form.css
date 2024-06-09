@@ -1,0 +1,143 @@
+body{
+	
+    	display:flex;
+    	justify-content:center;
+   	align-items:center;
+   	height:900px;
+    	background-image: url('gym-image6.jpeg');
+	background-size: cover; 
+	background-position: center; 
+   	background-repeat: no-repeat;
+    }
+.business-membership-form {
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 					rgba(0,0,0,0.2) 0px -1px 0px inset;
+  	background-color: rgba(0,0,0,0.3);
+	width: 90%;
+	height: auto;
+ 	border-radius: 1rem;
+  	padding-bottom:20px;
+  	display:flex;
+  	flex-direction:column;
+  	align-items:center;
+  	color:white;
+}
+.little-description{
+	width:80%;
+	}
+#business-membership-form{
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+	}
+.business-membership-form{
+	width:500px;  
+    }
+    input::placeholder{
+	color:white;
+	}
+.input{
+	position:relative;
+	}
+.long{
+	
+        height:2.5em;
+        width:30em;
+        border-radius:10px;
+        border:none;
+        color:#ab0b00;
+        caret-color:white;
+        background-color:rgba(255,255,255,0.3)
+    }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+.input-label{
+	position:absolute;
+	top:8px;
+	left:10px;
+	color:white;
+	transition: 0.4s all;
+	}
+.long:focus~.input-label, .short-input:focus~.input-label{
+	margin-top:-20px;
+	background-color: rgb(59, 59, 58);
+	border-radius:5px;
+	}
+.long:valid~.input-label, .short-input:valid~.input-label{
+	display:none;
+	}
+.short-container{
+        display:flex;
+        justify-content:space-between;
+        }
+.short{
+        height:2.5em;
+        width:40%;
+        border-radius:10px;
+        border:none;
+        color:#ab0b00;
+        caret-color:white;
+        background-color:rgba(255,255,255,0.3)
+    }
+.short-input{
+	width:100%;
+	}
+.nbg{
+	background:none;
+	}
+.enroll-button{
+        width:40%;
+        height:2.3em;
+        font-weight:bold;
+        text-transform: capitalize;
+        border:none;
+        border-radius:10px;
+        background-color: #820303;
+        color:white;
+        }
+        
+.enroll-button:hover{
+	background-color: #520606;
+	}
+    
+    
+    
+    
+@media (max-width: 600px) {   
+	.business-membership-form{
+		width:90%;
+		}
+	.long{
+		width:21em;
+		}
+		}
+@media (max-width: 490px) {
+    #number{
+	    font-size:0.8em;
+	    }
+        }
+@media (max-height: 600px) {
+	body{
+		height:500px;
+		}
+		}
+@media (max-height: 768px) {
+	body{
+		height:600px;
+		}
+		}
+@media (max-height: 1200px){
+	body{
+		height:900px;
+		}
+		}
+		
+    
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PERSONAL PAGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/personal.css">
+    <link rel="icon" href="images/logo_top.png" type="image/png" sizes="16x16">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html#main"><img src="images/logo_new.png" alt="company logo"></a>
+    </div>
+    <div class="navs">
+        <div class="navigation">
+            <a href="index.html">HOME</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="classes.html">CLASSES & PROGRAMS</a>
+            <a href="blog.html">BLOG</a>
+            <a href="about.html">ABOUT US</a>
+
+        </div>
+        <div class="nav-container">
+   <button class="open-btn" onclick="openNav()">☰</button>
+    <nav id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+            <a href="index.html">HOME</a>
+            <a href="membership.html">MEMBERSHIP</a>
+            <a href="classes.html">CLASSES & PROGRAMS</a>
+            <a href="blog.html">BLOG</a>
+            <a href="about.html">ABOUT US</a>
+        </nav>
+        </div>
+        <div class="profile">
+            <img src="images/profile-image.png" alt="" class="profile-image">
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="main">
+        <div class="content-container">
+            <div class="profile-container">
+                <div class="profile-image-container">
+                    <img src="profile-image.png" class="profile-image" alt="">
+                </div>
+                <div class="username-container">
+                    <h1>full name</h1>
+                    <p>@username</p>
+                    <button class="edit-profile-button">edit profile</button>
+                </div>
+            </div>
+
+            <div class="other-container">
+                <div class="plan-type-container">
+                    <h2>membership type</h2>
+                </div>
+                <button class="logout-button">log out</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+
+<footer>
+        <div class="upper">
+                <div class="social">
+                    <a href="https://facebook.com" target="_blank" title="follow us on facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="follow us on instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="follow us on twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com" target="_blank" title="follow us on youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com" target="_blank" title="follow us on tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="tel:+1234567890" title="Call Us"><i class="fas fa-phone"></i></a>
+                    <a href="mailto:contact@example.com" title="Email Us"><i class="fas fa-envelope"></i></a>
+                </div>
+
+                <div class="rate-us">
+                    <div class="rating">
+                        <span onclick="gfg(1)" class="star">★</span>
+                        <span onclick="gfg(2)" class="star">★</span>
+                        <span onclick="gfg(3)" class="star">★</span>
+                        <span onclick="gfg(4)" class="star">★</span>
+                        <span onclick="gfg(5)" class="star">★</span>
+                    </div>
+                    <h3 id="output">Rating is: 0/5</h3>
+                </div>
+                </div>
+            <div class="image-container">
+                <a href="https://maps.app.goo.gl/tLcQf5AJhzvTwART6" target="_blank">
+                    <img src="images/gym-map.png" alt="image of the place on map" class="image" />
+                </a>
+            </div>
+
+
+
+
+
+
+            <div class="footer-text">
+                <p>&copy 2024 Yared Kiros, Biniam , Estifanos , Simon ,Yeabsira Addis, All Rights Reserved | AAU SITE </p>
+            </div>
+    </footer>
+    <script src="js/personal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>log in</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="images/logo_top.png" type="image/png" sizes="16x16">
+</head>
+<body>
+
+<div class="flip-card">
+    <div class="registration-form">
+        <div class="log-in-form">
+
+           <h1>log in</h1>
+  <form>
+      <div class="input">
+    <input type="email" class="longinput form_input" name="email" id="login-email" autocomplete="complete"  required>
+          <label for="login-email" class="input-label">email</label>
+          </div>
+      <div class="input">
+    <input type="password" class="longinput form_input" name="password" id="login-password"  required>
+          <label for="login-password" class="input-label">password</label>
+          </div>
+       <div class="button-container">
+    <button class="button">log in</button>
+           </div>
+  </form>
+    <p>i dont have an account <b onclick="flipCard() " class="flip">sign up</b></p>
+    <button class="longinput google" ><img src="images/google-logo.png" id="google-logo" alt="" style="width:2em; height:2em;">continue with google</button>
+        </div>
+        <div class="sign-up-form">
+            <h1>sign up</h1>
+    <form id="signup-form">
+        <div class="input">
+      <input type="email" class="longinput form_input" name="email" id="signup-email" autocomplete="complete"  required>
+            <label for="signup-email" class="input-label">email</label>
+          </div>
+      <div class="shortinput-container">
+          <div class="shortinput input short-input">
+        <input type="text" class="shortinput form_input" name="firstName" id ="first_name" autocomplete="complete"  required>
+              <label for="first_name" class="input-label">first name</label>
+          </div>
+          <div class="shortinput input short-input">
+         <input type="text" class="shortinput form_input" name="lastName" id="last_name" autocomplete="complete" required>
+              <label for="last_name" class="input-label">last name</label>
+          </div>
+      </div>
+        <div class="input">
+      <input type="text" class="longinput form_input" name="username" id="username" autocomplete="complete"  required>
+            <label for="username" class="input-label">username</label>
+          </div>
+       <div class="shortinput-container">
+           <div class="shortinput input short-input">
+        <input type="password" class="shortinput form_input" id="password" name="password"  required>
+               <label for="password" class=" input-label">password</label>
+          </div>
+           <div class="shortinput input short-input">
+         <input type="password" class="shortinput form_input" id="confirmPassword" name="confirmPassword"  required>
+               <label for="confirmPassword" class="input-label">confirm password</label>
+          </div>
+      </div>
+        <span id="message" style="color: red;"></span>
+        <span id="lengthMessage" style="color: red;"></span>
+        <div class="check">
+            <input type="checkbox" class="checkbox" id="check-box">
+      <label for="check-box">signup with company code</label>
+        </div>
+        <div class="input">
+      <input type="text" class="longinput hidden form_input" id="company-code" name="companyCode" autocomplete="none"  minlength="10" maxlength="10">
+            <label for="company-code" class="input-label hidden" id="company_code">your company code</label>
+          </div>
+        <div class="button-container">
+      <button class="button">sign up</button>
+            </div>
+    </form>
+            <p>i have already an account <b onclick="flipCard()" class="flip">log in</b></p>
+    <button class="longinput google" ><img src="images/google-logo.png" id="google-logo" alt="" style="width:2em; height:2em;">continue with google</button>
+                    </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+<script src="js/login.js"></script>
+
+
+</body>
+</html>
