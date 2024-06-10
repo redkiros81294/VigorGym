@@ -31,7 +31,54 @@
 ```bash
 $ npm install
 ```
+## Notice
+for better expreance run ``` bash Dependencies and DevDependencies   ``` codes on the terminal 
 
+## Dependencies
+for better expreance run these codes on the terminal 
+
+```bash
+$ npm install @nestjs/common@^9.0.0
+$ npm install @nestjs/core@^9.0.0
+$ npm install @nestjs/jwt@^9.0.0
+$ npm install @nestjs/mongoose@^9.0.0
+$ npm install @nestjs/passport@^9.0.0
+$ npm install @nestjs/platform-express@^9.0.0
+$ npm install @nestjs/swagger@^9.0.0
+$ npm install @nestjs/typeorm@^9.0.0
+$ npm install bcrypt@^5.0.0
+$ npm install class-transformer@^0.5.1
+$ npm install class-validator@^0.13.2
+$ npm install mongoose@^6.0.0
+$ npm install passport@^0.4.1
+$ npm install passport-jwt@^4.0.0
+$ npm install passport-local@^1.0.0
+$ npm install reflect-metadata@^0.1.13
+$ npm install rxjs@^7.0.0
+$ npm install typeorm@^0.2.41
+
+```
+## DevDependencies
+
+```bash
+$ npm install --save-dev @nestjs/cli@^9.0.0
+$ npm install --save-dev @nestjs/schematics@^9.0.0
+$ npm install --save-dev @nestjs/testing@^9.0.0
+$ npm install --save-dev @types/express@^4.17.1
+$ npm install --save-dev @types/jest@^27.0.1
+$ npm install --save-dev @types/node@^16.0.0
+$ npm install --save-dev @types/passport-jwt@^3.0.6
+$ npm install --save-dev @types/passport-local@^1.0.34
+$ npm install --save-dev @types/supertest@^2.0.10
+$ npm install --save-dev jest@^27.0.1
+$ npm install --save-dev prettier@^2.0.5
+$ npm install --save-dev supertest@^6.1.3
+$ npm install --save-dev ts-jest@^27.0.1
+$ npm install --save-dev ts-loader@^9.2.1
+$ npm install --save-dev ts-node@^10.0.0
+$ npm install --save-dev typescript@^4.2.4
+
+```
 ## Running the app
 
 ```bash
