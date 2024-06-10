@@ -16,6 +16,8 @@ const membership_module_1 = require("./membership/membership.module");
 const users_module_1 = require("./users/users.module");
 const chapa_nestjs_1 = require("chapa-nestjs");
 const chapa_client_module_1 = require("./chapa-client/chapa-client.module");
+const app_controller_1 = require("./app.controller");
+const app_service_1 = require("./app.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,6 +28,7 @@ exports.AppModule = AppModule = __decorate([
                 secretKey: 'your-chapa-secret-key',
             }),
             mongoose_1.MongooseModule.forRoot('mongodb://localhost/nest'),
+            users_module_1.UsersModule,
             auth_module_1.AuthModule,
             blog_module_1.BlogModule,
             classes_module_1.ClassModule,
@@ -33,6 +36,8 @@ exports.AppModule = AppModule = __decorate([
             users_module_1.UsersModule,
             chapa_client_module_1.ChapaClientModule
         ],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

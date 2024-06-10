@@ -1,7 +1,9 @@
-import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Res } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Response } from 'express';
+import { join } from 'path';
 
 @Controller('blogs')
 export class BlogController {
@@ -16,5 +18,10 @@ export class BlogController {
   @Get()
   findAll() {
     return this.blogService.findAll();
+  }
+
+  @Get()
+  getBlogPage(@Res() res: Response) {
+    res.sendFile(join(__dirname, '..', '..', 'public', 'blog.html'));
   }
 }

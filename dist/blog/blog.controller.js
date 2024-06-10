@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const blog_service_1 = require("./blog.service");
 const create_blog_dto_1 = require("./dto/create-blog.dto");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
+const path_1 = require("path");
 let BlogController = class BlogController {
     constructor(blogService) {
         this.blogService = blogService;
@@ -26,6 +27,9 @@ let BlogController = class BlogController {
     }
     findAll() {
         return this.blogService.findAll();
+    }
+    getBlogPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', '..', 'public', 'blog.html'));
     }
 };
 exports.BlogController = BlogController;
@@ -43,6 +47,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], BlogController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], BlogController.prototype, "getBlogPage", null);
 exports.BlogController = BlogController = __decorate([
     (0, common_1.Controller)('blogs'),
     __metadata("design:paramtypes", [blog_service_1.BlogService])

@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards, Query } from '@nestjs/common';
+import { Controller, Res, Get, Post, Put, Delete, Body, Param, UseGuards, Query } from '@nestjs/common';
 import { ClassService } from './classes.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ChapaService } from '../chapa-sdk/chapa.service'; 
+import { join } from 'path';
+import { Response } from 'express';
 
 @Controller('classes')
 export class ClassController {
@@ -63,5 +65,9 @@ export class ClassController {
       // Update class status, etc.
     }
     return paymentStatus;
+  }
+  @Get()
+  getClassesPage(@Res() res: Response) {
+    res.sendFile(join(__dirname, '..', '..', 'public', 'classes.html'));
   }
 }

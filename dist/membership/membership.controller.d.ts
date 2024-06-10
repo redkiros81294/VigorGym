@@ -1,10 +1,12 @@
 import { MembershipService } from './membership.service';
 import { CreateMembershipDto } from './dto/create-membership.dto';
 import { ChapaService } from '../chapa-sdk/chapa.service';
+import { Response } from 'express';
 export declare class MembershipController {
     private readonly membershipService;
     private readonly chapaService;
     constructor(membershipService: MembershipService, chapaService: ChapaService);
+    getMembershipPage(res: Response): void;
     create(createMembershipDto: CreateMembershipDto): Promise<import("./schemas/membership.schema").Membership>;
     findAll(): Promise<import("./schemas/membership.schema").Membership[]>;
     update(id: string, createMembershipDto: CreateMembershipDto): Promise<import("./schemas/membership.schema").Membership>;

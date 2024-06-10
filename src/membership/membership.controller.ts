@@ -1,14 +1,20 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards, Query } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards, Query, Res } from '@nestjs/common';
 import { MembershipService } from './membership.service';
 import { CreateMembershipDto } from './dto/create-membership.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ChapaService } from '../chapa-sdk/chapa.service';
+import { Response } from 'express';
+import { join } from 'path';
 
 @Controller('memberships')
 export class MembershipController {
   constructor(private readonly membershipService: MembershipService,
               private readonly chapaService: ChapaService) { }
 
+   @Get()
+  getMembershipPage(@Res() res: Response) {
+    res.sendFile(join(__dirname, '..', '..', 'public', 'membership.html'));
+  }
   @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createMembershipDto: CreateMembershipDto) {

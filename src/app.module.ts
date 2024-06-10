@@ -7,6 +7,9 @@ import { MembershipModule } from './membership/membership.module';
 import { UsersModule } from './users/users.module';
 import { ChapaModule } from 'chapa-nestjs';
 import { ChapaClientModule } from './chapa-client/chapa-client.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
 
 @Module({
   imports: [
@@ -14,6 +17,7 @@ import { ChapaClientModule } from './chapa-client/chapa-client.module';
       secretKey: 'your-chapa-secret-key',
     }),
     MongooseModule.forRoot('mongodb://localhost/nest'),
+    UsersModule,
     AuthModule,
     BlogModule,
     ClassModule,
@@ -21,5 +25,7 @@ import { ChapaClientModule } from './chapa-client/chapa-client.module';
     UsersModule,
     ChapaClientModule
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

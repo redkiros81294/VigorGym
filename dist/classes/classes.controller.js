@@ -18,6 +18,7 @@ const classes_service_1 = require("./classes.service");
 const create_class_dto_1 = require("./dto/create-class.dto");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const chapa_service_1 = require("../chapa-sdk/chapa.service");
+const path_1 = require("path");
 let ClassController = class ClassController {
     constructor(classService, chapaService) {
         this.classService = classService;
@@ -59,6 +60,9 @@ let ClassController = class ClassController {
         if (paymentStatus.status === 'success') {
         }
         return paymentStatus;
+    }
+    getClassesPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', '..', 'public', 'classes.html'));
     }
 };
 exports.ClassController = ClassController;
@@ -117,6 +121,13 @@ __decorate([
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], ClassController.prototype, "paymentReturn", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ClassController.prototype, "getClassesPage", null);
 exports.ClassController = ClassController = __decorate([
     (0, common_1.Controller)('classes'),
     __metadata("design:paramtypes", [classes_service_1.ClassService, chapa_service_1.ChapaService])

@@ -18,10 +18,14 @@ const membership_service_1 = require("./membership.service");
 const create_membership_dto_1 = require("./dto/create-membership.dto");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const chapa_service_1 = require("../chapa-sdk/chapa.service");
+const path_1 = require("path");
 let MembershipController = class MembershipController {
     constructor(membershipService, chapaService) {
         this.membershipService = membershipService;
         this.chapaService = chapaService;
+    }
+    getMembershipPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', '..', 'public', 'membership.html'));
     }
     create(createMembershipDto) {
         return this.membershipService.create(createMembershipDto);
@@ -62,6 +66,13 @@ let MembershipController = class MembershipController {
     }
 };
 exports.MembershipController = MembershipController;
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], MembershipController.prototype, "getMembershipPage", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Post)(),

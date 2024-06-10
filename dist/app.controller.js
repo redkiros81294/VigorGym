@@ -16,30 +16,43 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
+const path_1 = require("path");
 let AppController = class AppController {
-    getHomePage() {
-        return 'index.html';
+    uploadFile(file) {
+        return { filePath: `/uploads/${file.filename}` };
     }
     getProfilePage() {
         return 'profile.html';
     }
-    uploadFile(file) {
-        return { filePath: `/uploads/${file.filename}` };
+    getHomePage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'index.html'));
+    }
+    getAboutPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'about.html'));
+    }
+    getContactPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'contact.html'));
+    }
+    getCMembershipPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'membership.html'));
+    }
+    getClassesPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'classes.html'));
+    }
+    getAdminPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'admins.html'));
+    }
+    getblogPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'blog.html'));
+    }
+    getGmembershipPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'bm-form.html'));
+    }
+    getRegPage(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'login.html'));
     }
 };
 exports.AppController = AppController;
-__decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "getHomePage", null);
-__decorate([
-    (0, common_1.Get)('profile'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "getProfilePage", null);
 __decorate([
     (0, common_1.Post)('upload'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
@@ -56,6 +69,75 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "uploadFile", null);
+__decorate([
+    (0, common_1.Get)('profile'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getProfilePage", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getHomePage", null);
+__decorate([
+    (0, common_1.Get)('about'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getAboutPage", null);
+__decorate([
+    (0, common_1.Get)('contact'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getContactPage", null);
+__decorate([
+    (0, common_1.Get)('membership'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getCMembershipPage", null);
+__decorate([
+    (0, common_1.Get)('classes'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getClassesPage", null);
+__decorate([
+    (0, common_1.Get)('admins'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getAdminPage", null);
+__decorate([
+    (0, common_1.Get)('blog'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getblogPage", null);
+__decorate([
+    (0, common_1.Get)('bm-form'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getGmembershipPage", null);
+__decorate([
+    (0, common_1.Get)('authenticate'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getRegPage", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)()
 ], AppController);
