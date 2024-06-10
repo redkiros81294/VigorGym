@@ -32,7 +32,7 @@
 $ npm install
 ```
 ## Notice
-for better expreance run ``` bash Dependencies and DevDependencies   ``` codes on the terminal 
+for better expreance run ```  Dependencies and DevDependencies   ``` codes on the terminal 
 
 ## Dependencies
 for better expreance run these codes on the terminal 
