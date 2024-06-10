@@ -65,6 +65,14 @@
                     <li class="list-item">yoga</li>
                 </ul>
                 <p class="price"><b>10,999</b><small>ETB/month</small></p>
+                <form id="payment-form-gold" action="/membership/gold/payment" method="POST">
+                    <input type="hidden" name="amount" value="10999">
+                    <input type="hidden" name="currency" value="ETB">
+                    <input type="text" name="email" placeholder="Email" required>
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                    <button type="submit">Pay Now</button>
+                  </form>
             </div>
             <div class="silver">
                 <h2>silver</h2>
@@ -77,6 +85,14 @@
                     <li class="list-item">aerobics</li>
                 </ul>
                 <p class="price"><b>7,999</b><small>ETB/month</small></p>
+                <form id="payment-form-silver" action="/membership/silver/payment" method="POST">
+                    <input type="hidden" name="amount" value="7999">
+                    <input type="hidden" name="currency" value="ETB">
+                    <input type="text" name="email" placeholder="Email" required>
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                    <button type="submit">Pay Now</button>
+                  </form>
             </div>
              <div class="normal">
                 <h2>normal</h2>
@@ -87,6 +103,13 @@
                     <li class="list-item">ice bath</li>
                 </ul>
                 <p class="price"><b>4,999</b> <small>ETB/month</small></p>
+                <form id="payment-form-normal" action="/membership/normal/payment" method="POST">
+                    <input type="hidden" name="amount" value="4999">
+                    <input type="hidden" name="currency" value="ETB">
+                    <input type="text" name="email" placeholder="Email" required>
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                    <button type="submit">Pay Now</button>
             </div>
             </div>
 

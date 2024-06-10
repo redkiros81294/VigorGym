@@ -14,18 +14,24 @@ const blog_module_1 = require("./blog/blog.module");
 const classes_module_1 = require("./classes/classes.module");
 const membership_module_1 = require("./membership/membership.module");
 const users_module_1 = require("./users/users.module");
+const chapa_nestjs_1 = require("chapa-nestjs");
+const chapa_client_module_1 = require("./chapa-client/chapa-client.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            chapa_nestjs_1.ChapaModule.register({
+                secretKey: 'your-chapa-secret-key',
+            }),
             mongoose_1.MongooseModule.forRoot('mongodb://localhost/nest'),
             auth_module_1.AuthModule,
             blog_module_1.BlogModule,
             classes_module_1.ClassModule,
             membership_module_1.MembershipModule,
             users_module_1.UsersModule,
+            chapa_client_module_1.ChapaClientModule
         ],
     })
 ], AppModule);

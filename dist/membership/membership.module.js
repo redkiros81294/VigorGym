@@ -12,12 +12,18 @@ const mongoose_1 = require("@nestjs/mongoose");
 const membership_service_1 = require("./membership.service");
 const membership_controller_1 = require("./membership.controller");
 const membership_schema_1 = require("./schemas/membership.schema");
+const chapa_module_1 = require("../chapa-sdk/chapa.module");
 let MembershipModule = class MembershipModule {
 };
 exports.MembershipModule = MembershipModule;
 exports.MembershipModule = MembershipModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: membership_schema_1.Membership.name, schema: membership_schema_1.MembershipSchema }])],
+        imports: [
+            chapa_module_1.ChapaModule.register({
+                secretKey: 'your-chapa-secret-key',
+            }),
+            mongoose_1.MongooseModule.forFeature([{ name: membership_schema_1.Membership.name, schema: membership_schema_1.MembershipSchema }])
+        ],
         providers: [membership_service_1.MembershipService],
         controllers: [membership_controller_1.MembershipController],
     })

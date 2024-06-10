@@ -12,12 +12,19 @@ const mongoose_1 = require("@nestjs/mongoose");
 const classes_service_1 = require("./classes.service");
 const classes_controller_1 = require("./classes.controller");
 const class_schema_1 = require("./schemas/class.schema");
+const chapa_module_1 = require("../chapa-sdk/chapa.module");
 let ClassModule = class ClassModule {
 };
 exports.ClassModule = ClassModule;
 exports.ClassModule = ClassModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: class_schema_1.Class.name, schema: class_schema_1.ClassSchema }])],
+        imports: [chapa_module_1.ChapaModule.register({
+                secretKey: 'your-chapa-secret-key',
+            }),
+            mongoose_1.MongooseModule.forFeature([{
+                    name: class_schema_1.Class.name, schema: class_schema_1.ClassSchema
+                }])
+        ],
         providers: [classes_service_1.ClassService],
         controllers: [classes_controller_1.ClassController],
     })
