@@ -38,3 +38,36 @@ function flipCard() {
                 }
             }
         });
+
+        document.querySelector('form[action="/auth/login"]').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const response = await fetch('/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  email: document.getElementById('login-email').value,
+                  password: document.getElementById('login-password').value,
+              })
+          });
+          const result = await response.json();
+          alert(result.message);
+      });
+      
+      document.querySelector('form[action="/auth/signup"]').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const response = await fetch('/auth/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  email: document.getElementById('signup-email').value,
+                  firstName: document.getElementById('first_name').value,
+                  lastName: document.getElementById('last_name').value,
+                  username: document.getElementById('username').value,
+                  password: document.getElementById('password').value,
+                  confirmPassword: document.getElementById('confirmPassword').value,
+              })
+          });
+          const result = await response.json();
+          alert(result.message);
+      });
+      

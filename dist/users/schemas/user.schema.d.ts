@@ -23,14 +23,32 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
-import { Document } from 'mongoose';
-export declare class User extends Document {
-    userId: number;
-    status: string;
-    registrationDate: Date;
+import { Schema, Document } from 'mongoose';
+export declare const UserSchema: Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
+    username: string;
+    password: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}, Document<unknown, {}, import("mongoose").FlatRecord<{
+    username: string;
+    password: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}>> & import("mongoose").FlatRecord<{
+    username: string;
+    password: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}> & {
+    _id: import("mongoose").Types.ObjectId;
+}>;
+export interface User extends Document {
+    username: string;
+    password: string;
+    email: string;
+    firstName: string;
+    lastName: string;
 }
-export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any, Document<unknown, any, User> & User & Required<{
-    _id: unknown;
-}>, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, User, Document<unknown, {}, import("mongoose").FlatRecord<User>> & import("mongoose").FlatRecord<User> & Required<{
-    _id: unknown;
-}>>;

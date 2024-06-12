@@ -26,8 +26,10 @@
 import { Model } from 'mongoose';
 import { User } from './schemas/user.schema';
 export declare class UsersService {
-    private readonly userModel;
+    private userModel;
     constructor(userModel: Model<User>);
-    findAll(): Promise<User[]>;
-    findOneById(id: string): Promise<User | null>;
+    createUser(username: string, password: string, email: string, firstName: string, lastName: string): Promise<User>;
+    findByUsername(username: string): Promise<User>;
+    validateUser(username: string, password: string): Promise<boolean>;
+    findOneById(id: string): Promise<User>;
 }

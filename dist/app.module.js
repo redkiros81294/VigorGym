@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
+const config_1 = require("@nestjs/config");
 const auth_module_1 = require("./auth/auth.module");
 const blog_module_1 = require("./blog/blog.module");
 const classes_module_1 = require("./classes/classes.module");
@@ -24,17 +25,19 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+            }),
             chapa_nestjs_1.ChapaModule.register({
                 secretKey: 'your-chapa-secret-key',
             }),
-            mongoose_1.MongooseModule.forRoot('mongodb://localhost/nest'),
+            mongoose_1.MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
             blog_module_1.BlogModule,
             classes_module_1.ClassModule,
             membership_module_1.MembershipModule,
-            users_module_1.UsersModule,
-            chapa_client_module_1.ChapaClientModule
+            chapa_client_module_1.ChapaClientModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

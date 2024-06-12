@@ -15,37 +15,42 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
-const login_dto_1 = require("./dto/login.dto");
-const path_1 = require("path");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    getLoginPage(res) {
-        res.sendFile((0, path_1.join)(__dirname, '..', '..', 'public', 'login.html'));
-    }
-    async login(loginDto) {
-        const { username, password } = loginDto;
-        const isValid = await this.authService.validateAdmin(username, password);
-        if (!isValid) {
-            throw new common_1.UnauthorizedException('Invalid credentials');
+    async signUp(body, res) {
+        const { username, email, password, confirmPassword, firstName, lastName } = body;
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: 'Passwords do not match' });
         }
-        return this.authService.login(username);
+        const result = await this.authService.signUp(username, password, email, firstName, lastName);
+        return res.status(result.status).json({ message: result.message });
+    }
+    async login(body, res) {
+        const { username, password } = body;
+        const isValid = await this.authService.login(username, password);
+        if (isValid) {
+            return res.status(200).json({ message: 'Login successful' });
+        }
+        return res.status(401).json({ message: 'Invalid credentials' });
     }
 };
 exports.AuthController = AuthController;
 __decorate([
-    (0, common_1.Get)('login'),
-    __param(0, (0, common_1.Res)()),
+    (0, common_1.Post)('signup'),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "getLoginPage", null);
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "signUp", null);
 __decorate([
     (0, common_1.Post)('login'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_dto_1.LoginDto]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "login", null);
 exports.AuthController = AuthController = __decorate([

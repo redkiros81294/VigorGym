@@ -1,8 +1,8 @@
 import { InitializeOptions } from '../interfaces/initialize.interface';
 export declare const validateInitializeOptions: (initializeOptions: InitializeOptions) => Promise<{
+    email?: string;
     first_name?: string;
     last_name?: string;
-    email?: string;
     currency?: string;
     amount?: string;
     tx_ref?: string;

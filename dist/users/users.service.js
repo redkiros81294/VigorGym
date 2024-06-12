@@ -16,13 +16,25 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const user_schema_1 = require("./schemas/user.schema");
+const bcrypt = require("bcryptjs");
 let UsersService = class UsersService {
     constructor(userModel) {
         this.userModel = userModel;
     }
-    async findAll() {
-        return this.userModel.find().exec();
+    async createUser(username, password, email, firstName, lastName) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new this.userModel({ username, password: hashedPassword, email, firstName, lastName });
+        return newUser.save();
+    }
+    async findByUsername(username) {
+        return this.userModel.findOne({ username }).exec();
+    }
+    async validateUser(username, password) {
+        const user = await this.findByUsername(username);
+        if (user) {
+            return bcrypt.compare(password, user.password);
+        }
+        return false;
     }
     async findOneById(id) {
         return this.userModel.findById(id).exec();
@@ -31,7 +43,7 @@ let UsersService = class UsersService {
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(user_schema_1.User.name)),
+    __param(0, (0, mongoose_1.InjectModel)('User')),
     __metadata("design:paramtypes", [mongoose_2.Model])
 ], UsersService);
 //# sourceMappingURL=users.service.js.map
