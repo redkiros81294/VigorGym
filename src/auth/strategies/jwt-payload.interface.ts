@@ -4,4 +4,5 @@ export interface JwtPayload {
   exp?: number; // Expiration (UNIX timestamp)
   roles?: string[]; // User roles or permissions
   // Add any other custom fields that your JWT payload contains
+
 }

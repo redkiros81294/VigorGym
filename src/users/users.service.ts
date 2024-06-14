@@ -18,32 +18,26 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import * as bcrypt from 'bcryptjs';
-import { User } from './schemas/user.schema';
+import { User } from './interfaces/user.interface'; // Ensure this interface is defined correctly
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel('User') private userModel: Model<User>) {}
+  constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
 
-  async createUser(username: string, password: string, email: string, firstName: string, lastName: string): Promise<User> {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new this.userModel({ username, password: hashedPassword, email, firstName, lastName });
-    return newUser.save();
+  async findOneById(id: string): Promise<User | null> {
+    return this.userModel.findById(id).exec();
   }
 
-  async findByUsername(username: string): Promise<User> {
+  async findOneByUsername(username: string): Promise<User | null> {
     return this.userModel.findOne({ username }).exec();
   }
 
-  async validateUser(username: string, password: string): Promise<boolean> {
-    const user = await this.findByUsername(username);
-    if (user) {
-      return bcrypt.compare(password, user.password);
-    }
-    return false;
+  async findOneByEmail(email: string): Promise<User | null> {
+    return this.userModel.findOne({ email }).exec();
   }
-  
-  async findOneById(id: string): Promise<User> {
-    return this.userModel.findById(id).exec();
+
+  async create(user: User): Promise<User> {
+    const newUser = new this.userModel(user);
+    return newUser.save();
   }
 }

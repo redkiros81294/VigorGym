@@ -24,12 +24,12 @@
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
 import { Model } from 'mongoose';
-import { User } from './schemas/user.schema';
+import { User } from './interfaces/user.interface';
 export declare class UsersService {
-    private userModel;
+    private readonly userModel;
     constructor(userModel: Model<User>);
-    createUser(username: string, password: string, email: string, firstName: string, lastName: string): Promise<User>;
-    findByUsername(username: string): Promise<User>;
-    validateUser(username: string, password: string): Promise<boolean>;
-    findOneById(id: string): Promise<User>;
+    findOneById(id: string): Promise<User | null>;
+    findOneByUsername(username: string): Promise<User | null>;
+    findOneByEmail(email: string): Promise<User | null>;
+    create(user: User): Promise<User>;
 }
