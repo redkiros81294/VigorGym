@@ -10,6 +10,7 @@ import { ChapaModule } from 'chapa-nestjs';
 import { ChapaClientModule } from './chapa-client/chapa-client.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { AppService } from './app.service';
       isGlobal: true,
     }),
     ChapaModule.register({
-      secretKey: 'your-chapa-secret-key',
+      secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
     }),
     MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
     UsersModule,
@@ -26,6 +27,7 @@ import { AppService } from './app.service';
     ClassModule,
     MembershipModule,
     ChapaClientModule,
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

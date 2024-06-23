@@ -19,11 +19,17 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redkiros81294/VigorGym.git"
+  },
   "dependencies": {
+    "@nestjs/axios": "^0.1.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.0",
     "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "^2.0.5",
     "@nestjs/mongoose": "^10.0.6",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.0.0",
@@ -32,11 +38,14 @@
     "bcryptjs": "^2.4.3",
     "chapa-nestjs": "^1.3.1",
     "mongoose": "^8.4.1",
+    "nanoid": "^3.0.0",
+    "nanoid-dictionary": "^4.3.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "serve-static": "^1.15.0"
+    "serve-static": "^1.15.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

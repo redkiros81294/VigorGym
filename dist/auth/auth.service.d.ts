@@ -1,5 +1,6 @@
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
+import { User } from '../users/interfaces/user.interface';
 export declare class AuthService {
     private readonly usersService;
     private readonly jwtService;
@@ -8,9 +9,10 @@ export declare class AuthService {
     signUp(username: string, password: string, email: string, firstName: string, lastName: string): Promise<{
         status: number;
         message: string;
-        user: import("../users/interfaces/user.interface").User;
+        user: User;
     }>;
     login(email: string, password: string): Promise<{
         accessToken: string;
     }>;
+    validateUser(username: string): Promise<User | null>;
 }

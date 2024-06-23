@@ -44,23 +44,31 @@ let AuthService = class AuthService {
     async signUp(username, password, email, firstName, lastName) {
         this.validatePassword(password);
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = await this.usersService.create({
+        const newUser = {
             username,
             password: hashedPassword,
             email,
             firstName,
             lastName,
-        });
+            roles: ['user'],
+        };
+        const user = await this.usersService.create(newUser);
         return { status: 201, message: 'User created successfully', user };
     }
     async login(email, password) {
         const user = await this.usersService.findOneByEmail(email);
         if (user && await bcrypt.compare(password, user.password)) {
-            const payload = { sub: user.id, email: user.email };
+            const payload = {
+                sub: user.username, email: user.email,
+                username: ''
+            };
             const token = this.jwtService.sign(payload);
             return { accessToken: token };
         }
         return null;
+    }
+    async validateUser(username) {
+        return this.usersService.findOneByUsername(username);
     }
 };
 exports.AuthService = AuthService;

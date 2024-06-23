@@ -18,7 +18,7 @@ exports.ChapaClientModule = ChapaClientModule = __decorate([
         controllers: [chapa_client_controller_1.ChapaClientController],
         imports: [
             chapa_module_1.ChapaModule.register({
-                secretKey: 'your-chapa-secret-key',
+                secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
             }),
         ],
     })

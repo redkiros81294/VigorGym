@@ -9,8 +9,8 @@ export declare const validateInitializeOptions: (initializeOptions: InitializeOp
     callback_url?: string;
     return_url?: string;
     customization?: {
-        title?: string;
         description?: string;
+        title?: string;
         logo?: string;
     };
     subaccounts?: {

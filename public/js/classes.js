@@ -73,5 +73,21 @@ function closeNav() {
             }
           });
         });
+    });
+      
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    
+      // Handle class card clicks
+      document.querySelectorAll('.join-class').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const card = e.target.closest('.class-card');
+          const price = card.getAttribute('data-price');
+          window.location.href = `/payment.html?amount=${price}&type=class&user_id=${userId}`;
+        });
       });
+    });
+    
       

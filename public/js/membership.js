@@ -30,4 +30,23 @@ function closeNav() {
     }
 function businessForm() {
         window.location.href = 'bm-form.html';
-    }
+}
+    
+
+
+
+
+
+
+
+// membership.js
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gold, .silver, .normal').forEach(card => {
+        card.addEventListener('click', () => {
+            const price = card.getAttribute('data-price');
+            const type = card.getAttribute('data-type');
+            const userId = card.getAttribute('data-user-id');
+            window.location.href = `/payment.html?amount=${price}&type=${type}&user_id=${userId}`;
+        });
+    });
+});

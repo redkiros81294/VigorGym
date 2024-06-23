@@ -25,6 +25,8 @@
 /// <reference types="mongoose/types/inferrawdoctype" />
 import { Model } from 'mongoose';
 import { User } from './interfaces/user.interface';
+import { UserDto } from './dto/user.dto';
+import { UserDocument } from './schemas/user.schema';
 export declare class UsersService {
     private readonly userModel;
     constructor(userModel: Model<User>);
@@ -32,4 +34,7 @@ export declare class UsersService {
     findOneByUsername(username: string): Promise<User | null>;
     findOneByEmail(email: string): Promise<User | null>;
     create(user: User): Promise<User>;
+    findById(id: string): Promise<User>;
+    createUser(userDto: UserDto): Promise<UserDocument>;
+    findAll(): Promise<User[]>;
 }

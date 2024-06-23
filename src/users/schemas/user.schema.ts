@@ -13,10 +13,10 @@
 //   registrationDate: Date;
 // }
 
-// export const UserSchema = SchemaFactory.createForClass(User);
-import { Schema, Document } from 'mongoose';
+// user.schema.ts
+import { Schema, Document, model } from 'mongoose';
 
-export const UserSchema = new Schema({
+const UserSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
@@ -24,10 +24,13 @@ export const UserSchema = new Schema({
   lastName: { type: String, required: true },
 });
 
-export interface User extends Document {
+export interface UserDocument extends Document {
   username: string;
   password: string;
   email: string;
   firstName: string;
   lastName: string;
 }
+
+export const UserModel = model<UserDocument>('User', UserSchema);
+export { UserSchema };

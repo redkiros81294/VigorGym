@@ -33,6 +33,16 @@ let UsersService = class UsersService {
         const newUser = new this.userModel(user);
         return newUser.save();
     }
+    async findById(id) {
+        return this.userModel.findById(id).exec();
+    }
+    async createUser(userDto) {
+        const createdUser = new this.userModel(userDto);
+        return createdUser.save();
+    }
+    async findAll() {
+        return this.userModel.find().exec();
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

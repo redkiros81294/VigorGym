@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
+    <link rel="icon" href="images/logo_top.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="css/manger.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.html#main"><img src="images/logo_new.png" alt="company logo"></a>
+        </div>
+        <div class="navs">
+            <div class="navigation">
+                <a href="index.html">HOME</a>
+                <a href="membership.html">MEMBERSHIP</a>
+                <a href="classes.html">CLASSES & PROGRAMS</a>
+                <a href="blog.html">BLOG</a>
+                <a href="about.html">ABOUT US</a>
+            </div>
+            <div class="nav-container">
+                <button class="open-btn" onclick="openNav()">☰</button>
+                <nav id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+                    <a href="index.html">HOME</a>
+                    <a href="membership.html">MEMBERSHIP</a>
+                    <a href="classes.html">CLASSES & PROGRAMS</a>
+                    <a href="blog.html">BLOG</a>
+                    <a href="about.html">ABOUT US</a>
+                </nav>
+            </div>
+            <div class="profile" onclick="personalPage()">
+                <img src="images/profile-image.png" alt="" class="profile-image">
+            </div>
+        </div>
+    </header>
     <div class="container">
         <nav>
             <ul>
@@ -19,15 +51,15 @@
         </nav>
         <section id="post-blog">
             <h2>Post Blog Content</h2>
-            <form id="blog-form">
+            <form id="blog-form" onsubmit="submitBlogForm(event)">
                 <label for="blog-title">Title:</label>
-                <input type="text" id="blog-title" name="blog-title" required>
+                <input type="text" id="blog-title" name="title" required>
                 <label for="blog-description">Description:</label>
-                <textarea id="blog-description" name="blog-description" required></textarea>
+                <textarea id="blog-description" name="description" required></textarea>
                 <label for="blog-background">Background Image:</label>
-                <input type="file" id="blog-background" name="blog-background" accept="image/*" required>
+                <input type="file" id="blog-background" name="backgroundImage" accept="image/*" required>
                 <label for="blog-voice">Voice (Optional):</label>
-                <input type="file" id="blog-voice" name="blog-voice" accept="audio/*">
+                <input type="file" id="blog-voice" name="voice" accept="audio/*">
                 <button type="submit">Post Blog</button>
             </form>
             <div id="posted-blog" style="display:none;">
@@ -42,33 +74,33 @@
             <div id="membership-cards">
                 <!-- Existing membership cards will be displayed here -->
             </div>
-            <form id="membership-form">
+            <form id="membership-form" onsubmit="submitMembershipForm(event)">
                 <label for="membership-type">Membership Type:</label>
-                <input type="text" id="membership-type" name="membership-type" required>
+                <input type="text" id="membership-type" name="type" required>
                 <label for="membership-features">Features:</label>
                 <div id="features-container">
-                    <input type="text" class="membership-feature" name="membership-feature" placeholder="Feature" required>
+                    <input type="text" class="membership-feature" name="features" placeholder="Feature" required>
                 </div>
-                <button type="button" id="add-feature">Add Feature</button>
+                <button type="button" id="add-feature" onclick="addFeature()">Add Feature</button>
                 <label for="membership-price">Price (ETB/month):</label>
-                <input type="number" id="membership-price" name="membership-price" required>
+                <input type="number" id="membership-price" name="price" required>
                 <button type="submit">Save Membership</button>
             </form>
             <button id="add-membership">Add New Membership</button>
         </section>
         <section id="manage-classes">
             <h2>Manage Classes and Programs</h2>
-            <form id="class-form">
+            <form id="class-form" onsubmit="submitClassForm(event)">
                 <label for="class-name">Class/Program Name:</label>
-                <input type="text" id="class-name" name="class-name" required>
+                <input type="text" id="class-name" name="name" required>
                 <label for="class-description">Description:</label>
-                <textarea id="class-description" name="class-description" required></textarea>
+                <textarea id="class-description" name="description" required></textarea>
                 <label for="class-image">Class Image:</label>
-                <input type="file" id="class-image" name="class-image" accept="image/*" required>
+                <input type="file" id="class-image" name="image" accept="image/*" required>
                 <label for="class-schedule">Schedule:</label>
-                <textarea id="class-schedule" name="class-schedule" placeholder="E.g., Tuesday: 10:00 AM - 11:00 AM" required></textarea>
+                <textarea id="class-schedule" name="schedule" placeholder="E.g., Tuesday: 10:00 AM - 11:00 AM" required></textarea>
                 <label for="class-rate">Drop-in Rate (birr/month):</label>
-                <input type="number" id="class-rate" name="class-rate" required>
+                <input type="number" id="class-rate" name="rate" required>
                 <button type="submit">Add/Update Class</button>
             </form>
             <div id="posted-class" style="display:none;">
@@ -100,6 +132,6 @@
             </table>
         </section>
     </div>
-    <script src="js/scripts.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

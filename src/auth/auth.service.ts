@@ -1,30 +1,11 @@
-// import { Injectable } from '@nestjs/common';
-// import { JwtService } from '@nestjs/jwt';
-// import * as bcrypt from 'bcryptjs';
-
-// @Injectable()
-// export class AuthService {
-//   constructor(private readonly jwtService: JwtService) {}
-
-//   async validateAdmin(username: string, password: string): Promise<boolean> {
-//     const adminUsername = process.env.ADMIN_USERNAME;
-//     const adminPassword = process.env.ADMIN_PASSWORD;
-//     return username === adminUsername && await bcrypt.compare(password, adminPassword);
-//   }
-
-//   async login(username: string) {
-//     const payload = { username };
-//     return {
-//       access_token: this.jwtService.sign(payload),
-//     };
-//   }
-// }
 
 // src/auth/auth.service.ts
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import { JwtPayload } from './interfaces/jwt-payload.interface';
+import { User } from '../users/interfaces/user.interface';
 
 @Injectable()
 export class AuthService {
@@ -61,25 +42,36 @@ export class AuthService {
     this.validatePassword(password);
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await this.usersService.create({
+
+    const newUser: User = {
       username,
       password: hashedPassword,
       email,
       firstName,
       lastName,
-    });
+      roles: ['user'], 
+    };
+
+    const user = await this.usersService.create(newUser);
+
     return { status: 201, message: 'User created successfully', user };
   }
 
   async login(email: string, password: string) {
     const user = await this.usersService.findOneByEmail(email);
     if (user && await bcrypt.compare(password, user.password)) {
-      const payload = { sub: user.id, email: user.email };
+      const payload: JwtPayload = {
+        sub: user.username, email: user.email,
+        username: ''
+      }; // Using JwtPayload with email
       const token = this.jwtService.sign(payload);
       return { accessToken: token };
     }
     return null;
   }
-}
 
+  async validateUser(username: string): Promise<User | null> {
+    return this.usersService.findOneByUsername(username);
+  }
+}
 

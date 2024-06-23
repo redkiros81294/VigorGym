@@ -21,10 +21,23 @@
 // }
 
 
-import { Controller } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { UserDto } from './dto/user.dto';
+import { UserDocument } from './schemas/user.schema';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly userService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
+
+  @Post()
+  async createUser(@Body() userDto: UserDto): Promise<UserDocument> {
+    return this.usersService.createUser(userDto);
+  }
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  async getAllUsers() {
+    return this.usersService.findAll();
+  }
 }

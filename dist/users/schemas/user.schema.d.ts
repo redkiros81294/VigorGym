@@ -24,7 +24,7 @@
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose/types/inferrawdoctype" />
 import { Schema, Document } from 'mongoose';
-export declare const UserSchema: Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
+declare const UserSchema: Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
     username: string;
     password: string;
     email: string;
@@ -45,10 +45,14 @@ export declare const UserSchema: Schema<any, import("mongoose").Model<any, any, 
 }> & {
     _id: import("mongoose").Types.ObjectId;
 }>;
-export interface User extends Document {
+export interface UserDocument extends Document {
     username: string;
     password: string;
     email: string;
     firstName: string;
     lastName: string;
 }
+export declare const UserModel: import("mongoose").Model<UserDocument, {}, {}, {}, Document<unknown, {}, UserDocument> & UserDocument & Required<{
+    _id: unknown;
+}>, any>;
+export { UserSchema };

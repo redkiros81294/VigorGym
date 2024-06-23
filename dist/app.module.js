@@ -19,6 +19,7 @@ const chapa_nestjs_1 = require("chapa-nestjs");
 const chapa_client_module_1 = require("./chapa-client/chapa-client.module");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const payment_module_1 = require("./payment/payment.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -29,7 +30,7 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }),
             chapa_nestjs_1.ChapaModule.register({
-                secretKey: 'your-chapa-secret-key',
+                secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
             }),
             mongoose_1.MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
             users_module_1.UsersModule,
@@ -38,6 +39,7 @@ exports.AppModule = AppModule = __decorate([
             classes_module_1.ClassModule,
             membership_module_1.MembershipModule,
             chapa_client_module_1.ChapaClientModule,
+            payment_module_1.PaymentModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

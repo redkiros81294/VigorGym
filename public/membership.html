@@ -1,179 +1,189 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MEMBERSHIP</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/membership.css">
     <link rel="icon" href="images/logo_top.png" type="image/png" sizes="16x16">
 </head>
+
 <body>
-<header>
-    <div class="logo">
-        <a href="index.html#main"><img src="images/logo_new.png" alt="company logo"></a>
-    </div>
-    <div class="navs">
-        <div class="navigation">
-            <a href="index.html">HOME</a>
-            <a href="membership.html">MEMBERSHIP</a>
-            <a href="classes.html">CLASSES & PROGRAMS</a>
-            <a href="blog.html">BLOG</a>
-            <a href="about.html">ABOUT US</a>
-
+    <header>
+        <div class="logo">
+            <a href="index.html#main"><img src="images/logo_new.png" alt="company logo"></a>
         </div>
-        <div class="nav-container">
-   <button class="open-btn" onclick="openNav()">☰</button>
-    <nav id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
-            <a href="index.html">HOME</a>
-            <a href="membership.html">MEMBERSHIP</a>
-            <a href="classes.html">CLASSES & PROGRAMS</a>
-            <a href="blog.html">BLOG</a>
-            <a href="about.html">ABOUT US</a>
-        </nav>
+        <div class="navs">
+            <div class="navigation">
+                <a href="index.html">HOME</a>
+                <a href="membership.html">MEMBERSHIP</a>
+                <a href="classes.html">CLASSES & PROGRAMS</a>
+                <a href="blog.html">BLOG</a>
+                <a href="about.html">ABOUT US</a>
+
+            </div>
+            <div class="nav-container">
+                <button class="open-btn" onclick="openNav()">☰</button>
+                <nav id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+                    <a href="index.html">HOME</a>
+                    <a href="membership.html">MEMBERSHIP</a>
+                    <a href="classes.html">CLASSES & PROGRAMS</a>
+                    <a href="blog.html">BLOG</a>
+                    <a href="about.html">ABOUT US</a>
+                </nav>
+            </div>
+            <div class="profile" onclick="personalPage()">
+                <img src="images/profile-image.png" alt="" class="profile-image">
+            </div>
         </div>
-        <div class="profile" onclick="personalPage()">
-            <img src="images/profile-image.png" alt="" class="profile-image">
-        </div>
-    </div>
-</header>
+    </header>
 
 
 
-<main>
-    <section class="main">
-        <div class="plans">
-            <div class="heading">
-            <h1 class="plan">plans</h1>
+    <main>
+        <section class="main">
+            <div class="plans">
+                <div class="heading">
+                    <h1 class="plan">plans</h1>
                 </div>
-            <div class="plan-types">
-            <div class="gold">
-                <h2>gold</h2>
-                <ul class="lists">
-                    <li class="list-item">shower</li>
-                    <li class="list-item">locker(x large)</li>
-                    <li class="list-item">free weight</li>
-                    <li class="list-item">ice bath</li>
-                    <li class="list-item">full spa</li>
-                    <li class="list-item">aerobics</li>
-                    <li class="list-item">personal trainer</li>
-                    <li class="list-item">indoor pool</li>
-                    <li class="list-item">body scan</li>
-                    <li class="list-item">yoga</li>
-                </ul>
-                <p class="price"><b>10,999</b><small>ETB/month</small></p>
-                <form id="payment-form-gold" action="/membership/gold/payment" method="POST">
-                    <input type="hidden" name="amount" value="10999">
-                    <input type="hidden" name="currency" value="ETB">
-                    <input type="text" name="email" placeholder="Email" required>
-                    <input type="text" name="first_name" placeholder="First Name" required>
-                    <input type="text" name="last_name" placeholder="Last Name" required>
-                    <button type="submit">Pay Now</button>
-                  </form>
-            </div>
-            <div class="silver">
-                <h2>silver</h2>
-                <ul class="lists">
-                    <li class="list-item">shower</li>
-                    <li class="list-item">locker</li>
-                    <li class="list-item">free weight</li>
-                    <li class="list-item">ice bath</li>
-                    <li class="list-item">steam</li>
-                    <li class="list-item">aerobics</li>
-                </ul>
-                <p class="price"><b>7,999</b><small>ETB/month</small></p>
-                <form id="payment-form-silver" action="/membership/silver/payment" method="POST">
-                    <input type="hidden" name="amount" value="7999">
-                    <input type="hidden" name="currency" value="ETB">
-                    <input type="text" name="email" placeholder="Email" required>
-                    <input type="text" name="first_name" placeholder="First Name" required>
-                    <input type="text" name="last_name" placeholder="Last Name" required>
-                    <button type="submit">Pay Now</button>
-                  </form>
-            </div>
-             <div class="normal">
-                <h2>normal</h2>
-                <ul class="lists">
-                    <li class="list-item">shower</li>
-                    <li class="list-item">locker</li>
-                    <li class="list-item">free weight</li>
-                    <li class="list-item">ice bath</li>
-                </ul>
-                <p class="price"><b>4,999</b> <small>ETB/month</small></p>
-                <form id="payment-form-normal" action="/membership/normal/payment" method="POST">
-                    <input type="hidden" name="amount" value="4999">
-                    <input type="hidden" name="currency" value="ETB">
-                    <input type="text" name="email" placeholder="Email" required>
-                    <input type="text" name="first_name" placeholder="First Name" required>
-                    <input type="text" name="last_name" placeholder="Last Name" required>
-                    <button type="submit">Pay Now</button>
-            </div>
-            </div>
+                <div class="plan-types">
+                  
+                        <div class="gold"  data-price="10999" data-type="gold" data-user-id="1">
+                            <h2>gold</h2>
+                            <ul class="lists">
+                                <li class="list-item">shower</li>
+                                <li class="list-item">locker(x large)</li>
+                                <li class="list-item">free weight</li>
+                                <li class="list-item">ice bath</li>
+                                <li class="list-item">full spa</li>
+                                <li class="list-item">aerobics</li>
+                                <li class="list-item">personal trainer</li>
+                                <li class="list-item">indoor pool</li>
+                                <li class="list-item">body scan</li>
+                                <li class="list-item">yoga</li>
+                            </ul>
+                            <p class="price"><b>10,999</b><small>ETB/month</small></p>
+                            <button style=" background-color: rgb(202, 86, 8); align-self: center; border-radius: 5px; width: 10em; margin-left: 42%;"  class="gold">Buy Now</button>
+                        </div>
+        
+                   
+                        <div class="silver"  data-price="7999" data-type="silver" data-user-id="2">
+                            <h2>silver</h2>
+                            <ul class="lists">
+                                <li class="list-item">shower</li>
+                                <li class="list-item">locker</li>
+                                <li class="list-item">free weight</li>
+                                <li class="list-item">ice bath</li>
+                                <li class="list-item">steam</li>
+                                <li class="list-item">aerobics</li>
+                            </ul>
+                            <p class="price"><b>7,999</b><small>ETB/month</small></p>
+                            <button style=" background-color: rgb(202, 86, 8); align-self: center; border-radius: 5px; width: 10em; margin-left: 42%;"  class="silver">Buy Now</button>
+                        </div>
+                    
+                        <div class="normal" data-price="4999" data-type="normal" data-user-id="3">
+                            <h2>normal</h2>
+                            <ul class="lists">
+                                <li class="list-item">shower</li>
+                                <li class="list-item">locker</li>
+                                <li class="list-item">free weight</li>
+                                <li class="list-item">ice bath</li>
+                            </ul>
+                            <p class="price"><b>4,999</b> <small>ETB/month</small></p>
+                            <button style=" background-color: rgb(202, 86, 8); align-self: center; border-radius: 5px; width: 10em; margin-left: 42%;" class="normal">Buy Now</button>
+                        </div>
+                    
 
 
-        </div>
-    </section>
-    <section class="main">
-    <div class="business-plan">
-        <h1 class="plan">business plan</h1>
-        <p class="business-plan-description">Our gym takes pride in offering an exclusive membership program tailored specifically for companies aiming to enhance the well-being of their employees through fitness initiatives. Our business membership plan provides a customizable approach, allowing companies to select from gold, silver, or normal membership tiers based on their budget and the fitness needs of their workforce. Moreover, companies have the flexibility to determine the number of employees they wish to enroll, ensuring that the program aligns precisely with their organizational requirements.
-
-        The enrollment process is simple and efficient, starting with a brief form where companies outline their preferred membership tier and specify the number of employees to be covered. Upon submission of this form, a unique access code is promptly generated, tailored to the specified number of employees. This code serves as a seamless gateway for employees to register under their company's membership umbrella, facilitating easy authentication and association with the designated membership plan.
-
-        To maintain service quality and fairness for all members, registration using a company's access code is capped at the predetermined number of employees indicated during enrollment. Once this limit is reached, further registrations under the same code are respectfully closed, ensuring optimal access and experience for all participants.
-
-        The benefits of our business membership program extend beyond just access to premium gym facilities. By empowering employees with fitness opportunities, companies can cultivate a culture of well-being within their organization, leading to increased productivity, morale, and overall satisfaction. Additionally, our streamlined enrollment and management processes make it effortless for companies to administer and track employee memberships, saving valuable time and resources.</p>
-        <div class="business-plan-button-container">
-        <button class="business-plan-button" onclick="businessForm() ">make Enrollment</button>
-            </div>
-    </div>
+                </div>
         </section>
-</main>
+        <section class="main">
+            <div class="business-plan">
+                <h1 class="plan">business plan</h1>
+                <p class="business-plan-description">Our gym takes pride in offering an exclusive membership program
+                    tailored specifically for companies aiming to enhance the well-being of their employees through
+                    fitness initiatives. Our business membership plan provides a customizable approach, allowing
+                    companies to select from gold, silver, or normal membership tiers based on their budget and the
+                    fitness needs of their workforce. Moreover, companies have the flexibility to determine the number
+                    of employees they wish to enroll, ensuring that the program aligns precisely with their
+                    organizational requirements.
+
+                    The enrollment process is simple and efficient, starting with a brief form where companies outline
+                    their preferred membership tier and specify the number of employees to be covered. Upon submission
+                    of this form, a unique access code is promptly generated, tailored to the specified number of
+                    employees. This code serves as a seamless gateway for employees to register under their company's
+                    membership umbrella, facilitating easy authentication and association with the designated membership
+                    plan.
+
+                    To maintain service quality and fairness for all members, registration using a company's access code
+                    is capped at the predetermined number of employees indicated during enrollment. Once this limit is
+                    reached, further registrations under the same code are respectfully closed, ensuring optimal access
+                    and experience for all participants.
+
+                    The benefits of our business membership program extend beyond just access to premium gym facilities.
+                    By empowering employees with fitness opportunities, companies can cultivate a culture of well-being
+                    within their organization, leading to increased productivity, morale, and overall satisfaction.
+                    Additionally, our streamlined enrollment and management processes make it effortless for companies
+                    to administer and track employee memberships, saving valuable time and resources.</p>
+                <div class="business-plan-button-container">
+                    <button class="business-plan-button" onclick="businessForm() ">make Enrollment</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
 
 
-<footer>
+    <footer>
         <div class="upper">
-                <div class="social">
-                    <a href="https://facebook.com" target="_blank" title="follow us on facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com" target="_blank" title="follow us on instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank" title="follow us on twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtube.com" target="_blank" title="follow us on youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://tiktok.com" target="_blank" title="follow us on tiktok"><i class="fab fa-tiktok"></i></a>
-                    <a href="tel:+1234567890" title="Call Us"><i class="fas fa-phone"></i></a>
-                    <a href="mailto:contact@example.com" title="Email Us"><i class="fas fa-envelope"></i></a>
-                </div>
-
-                <div class="rate-us">
-                    <div class="rating">
-                        <span onclick="gfg(1)" class="star">★</span>
-                        <span onclick="gfg(2)" class="star">★</span>
-                        <span onclick="gfg(3)" class="star">★</span>
-                        <span onclick="gfg(4)" class="star">★</span>
-                        <span onclick="gfg(5)" class="star">★</span>
-                    </div>
-                    <h2 id="output">Rating is: 0/5</h2>
-                </div>
-                </div>
-            <div class="image-container">
-                <a href="https://maps.app.goo.gl/tLcQf5AJhzvTwART6" target="_blank">
-                    <img src="images/gym-map.png" alt="image of the place on map" class="image" />
-                </a>
+            <div class="social">
+                <a href="https://facebook.com" target="_blank" title="follow us on facebook"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" title="follow us on instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" title="follow us on twitter"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com" target="_blank" title="follow us on youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://tiktok.com" target="_blank" title="follow us on tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="tel:+1234567890" title="Call Us"><i class="fas fa-phone"></i></a>
+                <a href="mailto:contact@example.com" title="Email Us"><i class="fas fa-envelope"></i></a>
             </div>
 
-
-
-
-
-
-            <div class="footer-text">
-                <p>&copy 2024 Yared Kiros, Biniam , Estifanos , Simon ,Yeabsira Addis, All Rights Reserved | AAU SITE </p>
+            <div class="rate-us">
+                <div class="rating">
+                    <span onclick="gfg(1)" class="star">★</span>
+                    <span onclick="gfg(2)" class="star">★</span>
+                    <span onclick="gfg(3)" class="star">★</span>
+                    <span onclick="gfg(4)" class="star">★</span>
+                    <span onclick="gfg(5)" class="star">★</span>
+                </div>
+                <h2 id="output">Rating is: 0/5</h2>
             </div>
+        </div>
+        <div class="image-container">
+            <a href="https://maps.app.goo.gl/tLcQf5AJhzvTwART6" target="_blank">
+                <img src="images/gym-map.png" alt="image of the place on map" class="image" />
+            </a>
+        </div>
+
+
+
+
+
+
+        <div class="footer-text">
+            <p>&copy 2024 Yared Kiros, Biniam , Estifanos , Simon ,Yeabsira Addis, All Rights Reserved | AAU SITE </p>
+        </div>
     </footer>
     <script src="js/membership.js"></script>
 
 </body>
+
 </html>

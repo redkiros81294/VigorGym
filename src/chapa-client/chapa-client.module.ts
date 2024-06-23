@@ -7,7 +7,7 @@ import { ChapaModule } from '../chapa-sdk/chapa.module';
   controllers: [ChapaClientController],
   imports: [
     ChapaModule.register({
-      secretKey: 'your-chapa-secret-key',
+      secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
     }),
   ],
 })
