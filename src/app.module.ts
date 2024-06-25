@@ -11,6 +11,7 @@ import { ChapaClientModule } from './chapa-client/chapa-client.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PaymentModule } from './payment/payment.module';
+import { EnrollmentModule } from './enrollment/enrollment.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { PaymentModule } from './payment/payment.module';
     MembershipModule,
     ChapaClientModule,
     PaymentModule,
+    EnrollmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

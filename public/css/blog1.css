@@ -152,7 +152,7 @@ main{
 	padding-left:50px;
 	}
 #article01{
-	 background-image: url('download.jpeg');
+	 background-image: url('../images/download.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
@@ -160,42 +160,42 @@ main{
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article02{
-	 background-image: url('motivation.jpeg');
+	 background-image: url('../images/motivation.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article03{
-	 background-image: url('images.jpeg');
+	 background-image: url('../images/images.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article04{
-	 background-image: url('images 1.jpeg');
+	 background-image: url('../images/images 1.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article05{
-	 background-image: url('images2.jpeg');
+	 background-image: url('../images/images2.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article06{
-	 background-image: url('nutrition1.jpeg');
+	 background-image: url('../images/nutrition1.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article07{
-	 background-image: url('gym-image1.jpeg');
+	 background-image: url('../images/gym-image1.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
@@ -203,63 +203,63 @@ main{
 	}
 	
 #article08{
-	 background-image: url('rest.jpeg');
+	 background-image: url('../images/rest.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article09{
-	 background-image: url('gym-image2.jpeg');
+	 background-image: url('../images/gym-image2.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article10{
-	 background-image: url('gym-image3.jpeg');
+	 background-image: url('../images/gym-image3.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article11{
-	 background-image: url('gym-image4.jpeg');
+	 background-image: url('../images/gym-image4.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article12{
-	 background-image: url('motivation.jpeg');
+	 background-image: url('../images/motivation.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article13{
-	 background-image: url('gym-image6.jpeg');
+	 background-image: url('../images/gym-image6.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article14{
-	 background-image: url('gym-image7.jpeg');
+	 background-image: url('../images/gym-image7.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article15{
-	 background-image: url('gym-nutrition.jpeg');
+	 background-image: url('../images/gym-nutrition.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;
 	background-color: rgba(255, 255, 255, 0.8);
 	}
 #article16{
-	background-image: url('motivationpic.jpeg');
+	background-image: url('../images/motivationpic.jpeg');
 	background-size: cover; 
 	background-position: center; 
     background-repeat: no-repeat;

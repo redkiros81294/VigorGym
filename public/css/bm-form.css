@@ -4,7 +4,7 @@ body{
     	justify-content:center;
    	align-items:center;
    	height:900px;
-    	background-image: url('gym-image6.jpeg');
+    	background-image: url('../images/gym-image6.jpeg');
 	background-size: cover; 
 	background-position: center; 
    	background-repeat: no-repeat;

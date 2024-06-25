@@ -23,7 +23,7 @@
 //   }
 // }
 
-
+// src/auth/strategies/jwt.strategy.ts
 import { Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
@@ -40,6 +40,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
+  
   async validate(payload: JwtPayload): Promise<User> {
     const user = await this.authService.validateUser(payload.sub);
     if (!user) {
@@ -48,6 +49,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     return user;
   }
 }
+
 
 
 

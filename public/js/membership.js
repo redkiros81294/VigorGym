@@ -32,21 +32,40 @@ function businessForm() {
         window.location.href = 'bm-form.html';
 }
     
-
-
-
-
-
-
-
-// membership.js
+//enrollment handling
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.gold, .silver, .normal').forEach(card => {
-        card.addEventListener('click', () => {
-            const price = card.getAttribute('data-price');
-            const type = card.getAttribute('data-type');
-            const userId = card.getAttribute('data-user-id');
-            window.location.href = `/payment.html?amount=${price}&type=${type}&user_id=${userId}`;
-        });
+  document.querySelectorAll('.gold, .silver, .normal').forEach(card => {
+    card.addEventListener('click', () => {
+      const price = card.getAttribute('data-price');
+      const type = card.getAttribute('data-type');
+      const userId = card.getAttribute('data-user-id');
+      const productName = card.querySelector('h2').textContent.trim();
+      if (!price || !type || !userId || !productName) {
+        console.error('Missing membership information:', { price, type, userId, productName });
+        alert('Missing membership information.');
+        return;
+      }
+      window.location.href = `/payment.html?amount=${price}&type=membership&user_id=${userId}&product_name=${encodeURIComponent(productName)}`;
     });
+  });
 });
+
+//membership perchase
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gold, .silver, .normal').forEach(card => {
+    card.addEventListener('click', () => {
+      const price = card.getAttribute('data-price');
+      const type = card.getAttribute('data-type');
+      const userId = card.getAttribute('data-user-id');
+      const productName = card.querySelector('h2').textContent.trim();
+      if (!price || !type || !userId || !productName) {
+        console.error('Missing membership information:', { price, type, userId, productName });
+        alert('Missing membership information.');
+        return;
+      }
+      window.location.href = `/payment.html?amount=${price}&type=membership&user_id=${userId}&product_name=${encodeURIComponent(productName)}`;
+    });
+  });
+});
+
+  

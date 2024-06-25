@@ -5,12 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>business membership form</title>
+    <title>Business Membership</title>
     <link rel="stylesheet" href="css/bm-form.css">
      <link rel="icon" href="images/logo_top.png" type="image/png" sizes="16x16">
 </head>
 <body>
-<div class="business-membership-form">
+<!-- <div class="business-membership-form">
             <h1>business membership form</h1>
     <p class="little-description">Welcome back to our business membership! To sign up, just provide your company email, name, and select a plan type. Please note, we require a minimum of 10 employees for eligibility. Plus, enjoy a 10% discount if your employee count exceeds 20!</p>
     <form id="business-membership-form">
@@ -37,7 +37,37 @@
       
             
     </form>
+</div> -->
+
+<div class="business-membership-form">
+  <h1>Business Membership</h1>
+  <p class="little-description">Welcome back to our business membership! To sign up, just provide your company email, name, and select a plan type. Please note, we require a minimum of 10 employees for eligibility. Plus, enjoy a 10% discount if your employee count exceeds 20!</p>
+  <form id="business-membership-form">
+    <div class="input">
+      <input type="text" class="long" name="company-name" id="company-name" autocomplete="complete" required>
+      <label for="company-name" class="input-label">Company Name</label>
+    </div>
+    <div class="input">
+      <input type="email" class="long" name="company-email" id="company-email" autocomplete="complete" required>
+      <label for="company-email" class="input-label">Company Email</label>
+    </div>
+    <div class="input">
+      <select class="long" name="plan-type" id="plan-type">
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="normal">Normal</option>
+      </select>
+    </div>
+    <div class="short-container">
+      <div class="input short nbg">
+        <input type="number" class="short short-input" name="number-of-employees" id="number-of-employees" autocomplete="complete" min="10" required>
+        <label for="number-of-employees" class="input-label">No. of Employees</label>
+      </div>
+      <button type="submit" class="short enroll-button">Enroll</button>
+    </div>
+  </form>
 </div>
+<script src="js/enrollment.js"></script>
 
 </body>
 </html>
