@@ -15,33 +15,42 @@ var PaymentService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaymentService = void 0;
 const common_1 = require("@nestjs/common");
-const axios_1 = require("axios");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const payment_schema_1 = require("./schemas/payment.schema");
 const user_schema_1 = require("../users/schemas/user.schema");
+const chapa_nestjs_1 = require("chapa-nestjs");
 let PaymentService = PaymentService_1 = class PaymentService {
-    constructor(paymentModel, userModel) {
+    constructor(paymentModel, userModel, chapaService) {
         this.paymentModel = paymentModel;
         this.userModel = userModel;
+        this.chapaService = chapaService;
         this.logger = new common_1.Logger(PaymentService_1.name);
     }
     async processPayment(paymentDto) {
         try {
-            const response = await axios_1.default.post('https://api.chapa.co/v1/transaction/initialize', {
-                amount: paymentDto.amount,
+            const tx_ref = await this.chapaService.generateTransactionReference();
+            const response = await this.chapaService.initialize({
+                first_name: paymentDto.user.firstName,
+                last_name: paymentDto.user.lastName,
+                email: paymentDto.user.email,
                 currency: 'ETB',
-                email: 'ab1rham5ethiopian@gmail.com',
+                amount: paymentDto.amount.toString(),
+                tx_ref: tx_ref,
                 callback_url: 'http://localhost:3000/payment/verify',
-                tx_ref: `tx_ref_${Date.now()}`,
+                return_url: 'http://localhost:3000/payment/success',
+                customization: {
+                    title: 'Payment for ' + paymentDto.type,
+                    description: 'Payment transaction',
+                },
             });
-            this.logger.log('Payment initialization response:', response.data);
-            if (response.data.status === 'success') {
+            this.logger.log('Payment initialization response:', response);
+            if (response.status === 'success') {
                 return { success: true, message: 'Payment initialized successfully', data: response.data };
             }
             else {
-                this.logger.error('Payment initialization failed:', response.data);
-                return { success: false, message: 'Payment initialization failed', data: response.data };
+                this.logger.error('Payment initialization failed:', response);
+                return { success: false, message: 'Payment initialization failed', data: response };
             }
         }
         catch (error) {
@@ -49,30 +58,25 @@ let PaymentService = PaymentService_1 = class PaymentService {
             return { success: false, message: 'Payment processing failed' };
         }
     }
-    async verifyPayment(txRef, username) {
+    async verifyPayment(txRef, user) {
         try {
-            const response = await axios_1.default.get(`https://api.chapa.co/v1/transaction/verify/${txRef}`);
-            this.logger.log('Payment verification response:', response.data);
-            if (response.data.status === 'success') {
-                const user = await this.userModel.findOne({ username });
-                if (!user) {
-                    this.logger.error('User not found for username:', username);
-                    return { success: false, message: 'User not found' };
-                }
+            const response = await this.chapaService.verify({ tx_ref: txRef });
+            this.logger.log('Payment verification response:', response);
+            if (response.status === 'success') {
                 const payment = new this.paymentModel({
-                    amount: response.data.data.amount,
-                    type: response.data.data.type,
-                    status: response.data.data.status,
+                    amount: parseFloat(response.data.amount),
+                    type: response.data.type,
+                    status: response.data.status,
                     transactionReference: txRef,
-                    user: user._id,
+                    user: user.username,
                     createdAt: new Date(),
                 });
                 await payment.save();
                 return { success: true, message: 'Payment verified and saved successfully', data: response.data };
             }
             else {
-                this.logger.error('Payment verification failed:', response.data);
-                return { success: false, message: 'Payment verification failed', data: response.data };
+                this.logger.error('Payment verification failed:', response);
+                return { success: false, message: 'Payment verification failed', data: response };
             }
         }
         catch (error) {
@@ -87,6 +91,7 @@ exports.PaymentService = PaymentService = PaymentService_1 = __decorate([
     __param(0, (0, mongoose_1.InjectModel)(payment_schema_1.PaymentModel.modelName)),
     __param(1, (0, mongoose_1.InjectModel)(user_schema_1.UserModel.modelName)),
     __metadata("design:paramtypes", [mongoose_2.Model,
-        mongoose_2.Model])
+        mongoose_2.Model,
+        chapa_nestjs_1.ChapaService])
 ], PaymentService);
 //# sourceMappingURL=payment.service.js.map

@@ -7,7 +7,7 @@ const PaymentSchema = new mongoose_1.Schema({
     type: { type: String, required: true },
     status: { type: String, required: true },
     transactionReference: { type: String, required: true },
-    user: { type: mongoose_1.Schema.Types.ObjectId, ref: 'User', required: true },
+    user: { type: String, ref: 'User', required: true },
     createdAt: { type: Date, default: Date.now },
 });
 exports.PaymentSchema = PaymentSchema;

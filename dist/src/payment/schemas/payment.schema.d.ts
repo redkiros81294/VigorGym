@@ -25,25 +25,25 @@
 /// <reference types="mongoose/types/inferrawdoctype" />
 import { Schema, Document } from 'mongoose';
 declare const PaymentSchema: Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
-    type: string;
-    user: import("mongoose").Types.ObjectId;
     amount: number;
+    type: string;
     status: string;
     transactionReference: string;
+    user: string;
     createdAt: Date;
 }, Document<unknown, {}, import("mongoose").FlatRecord<{
-    type: string;
-    user: import("mongoose").Types.ObjectId;
     amount: number;
+    type: string;
     status: string;
     transactionReference: string;
+    user: string;
     createdAt: Date;
 }>> & import("mongoose").FlatRecord<{
-    type: string;
-    user: import("mongoose").Types.ObjectId;
     amount: number;
+    type: string;
     status: string;
     transactionReference: string;
+    user: string;
     createdAt: Date;
 }> & {
     _id: import("mongoose").Types.ObjectId;
@@ -53,7 +53,7 @@ export interface Payment extends Document {
     type: string;
     status: string;
     transactionReference: string;
-    user: Schema.Types.ObjectId;
+    user: string;
     createdAt: Date;
 }
 export declare const PaymentModel: import("mongoose").Model<Payment, {}, {}, {}, Document<unknown, {}, Payment> & Payment & Required<{

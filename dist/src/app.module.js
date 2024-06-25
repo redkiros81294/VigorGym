@@ -30,8 +30,12 @@ exports.AppModule = AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }),
-            chapa_nestjs_1.ChapaModule.register({
-                secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
+            chapa_nestjs_1.ChapaModule.registerAsync({
+                imports: [config_1.ConfigModule],
+                inject: [config_1.ConfigService],
+                useFactory: async (configService) => ({
+                    secretKey: configService.get('CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn'),
+                }),
             }),
             mongoose_1.MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
             users_module_1.UsersModule,

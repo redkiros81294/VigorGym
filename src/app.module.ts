@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { BlogModule } from './blog/blog.module';
 import { ClassModule } from './classes/classes.module'; // Ensure this path is correct
@@ -18,8 +18,15 @@ import { EnrollmentModule } from './enrollment/enrollment.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ChapaModule.register({
-      secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
+    // ChapaModule.register({
+    //   secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
+    // }),
+    ChapaModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        secretKey: configService.get<string>('CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn'),
+      }),
     }),
     MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
     UsersModule,

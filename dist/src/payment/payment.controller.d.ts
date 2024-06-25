@@ -15,7 +15,13 @@ export declare class PaymentController {
     }, req: Request): Promise<{
         success: boolean;
         message: string;
-        data: any;
+        data: {
+            checkout_url: string;
+        };
+    } | {
+        success: boolean;
+        message: string;
+        data: import("chapa-nestjs").InitializeResponse;
     } | {
         success: boolean;
         message: string;
@@ -27,10 +33,35 @@ export declare class PaymentController {
     verifyPayment(txRef: string, req: Request): Promise<{
         success: boolean;
         message: string;
-        data?: undefined;
+        data: {
+            first_name: string;
+            last_name: string;
+            email: string;
+            currency: string;
+            amount: string;
+            charge: string;
+            mode: string;
+            method: string;
+            type: string;
+            status: string;
+            reference: string;
+            tx_ref: string;
+            customization: {
+                title: string;
+                description: string;
+                logo: string;
+            };
+            meta: any;
+            created_at: Date;
+            updated_at: Date;
+        };
     } | {
         success: boolean;
         message: string;
-        data: any;
+        data: import("chapa-nestjs").VerifyResponse;
+    } | {
+        success: boolean;
+        message: string;
+        data?: undefined;
     }>;
 }
