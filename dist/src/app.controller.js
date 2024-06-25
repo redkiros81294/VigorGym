@@ -18,6 +18,9 @@ const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const path_1 = require("path");
 let AppController = class AppController {
+    getIndex(res) {
+        res.sendFile((0, path_1.join)(__dirname, '..', 'public', 'index.html'));
+    }
     uploadFile(file) {
         return { filePath: `/uploads/${file.filename}` };
     }
@@ -53,6 +56,13 @@ let AppController = class AppController {
     }
 };
 exports.AppController = AppController;
+__decorate([
+    (0, common_1.Get)('/'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getIndex", null);
 __decorate([
     (0, common_1.Post)('upload'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {

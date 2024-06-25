@@ -6,7 +6,10 @@ import { join } from 'path';
 
 @Controller()
 export class AppController {
- 
+  @Get('/')
+  getIndex(@Res() res: Response) {
+    res.sendFile(join(__dirname, '..', 'public', 'index.html'));
+  }
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file', {

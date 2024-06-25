@@ -1,5 +1,6 @@
 import { Response } from 'express';
 export declare class AppController {
+    getIndex(res: Response): void;
     uploadFile(file: any): {
         filePath: string;
     };
