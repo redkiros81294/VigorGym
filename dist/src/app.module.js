@@ -21,6 +21,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const payment_module_1 = require("./payment/payment.module");
 const enrollment_module_1 = require("./enrollment/enrollment.module");
+const path_1 = require("path");
+const serve_static_1 = require("@nestjs/serve-static");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -29,6 +31,10 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
+            }),
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'public'),
+                serveRoot: '/static',
             }),
             chapa_nestjs_1.ChapaModule.registerAsync({
                 imports: [config_1.ConfigModule],

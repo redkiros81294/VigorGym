@@ -12,6 +12,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PaymentModule } from './payment/payment.module';
 import { EnrollmentModule } from './enrollment/enrollment.module';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -21,6 +23,10 @@ import { EnrollmentModule } from './enrollment/enrollment.module';
     // ChapaModule.register({
     //   secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
     // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'), // Adjust 'public' to your actual folder name
+      serveRoot: '/static', // Optional URL prefix
+    }),
     ChapaModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -28,6 +34,7 @@ import { EnrollmentModule } from './enrollment/enrollment.module';
         secretKey: configService.get<string>('CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn'),
       }),
     }),
+    
     MongooseModule.forRoot('mongodb://localhost/vigor-gym'),
     UsersModule,
     AuthModule,
