@@ -51,10 +51,10 @@ interface AuthenticatedRequest extends Request {
   };
 }
 
-
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private readonly usersService: UsersService
   ) {}
 
@@ -77,17 +77,6 @@ export class AuthController {
     }
   }
 
-  // @Post('login')
-  // async login(@Body() body, @Res() res: Response): Promise<any> {
-  //   const { email, password } = body;
-  //   const result = await this.authService.login(email, password);
-  //   if (result) {
-  //     res.cookie('jwt', result.accessToken, { httpOnly: true });
-  //     return res.status(HttpStatus.OK).json({ redirectUrl: '/index.html' });
-  //   }
-  //   return res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Invalid credentials' });
-  // }
-
   @Post('login')
   async login(@Body() body, @Res() res: Response): Promise<any> {
     const { email, password } = body;
@@ -104,7 +93,6 @@ export class AuthController {
     }
     return res.status(HttpStatus.UNAUTHORIZED).json({ message: 'Invalid credentials' });
   }
-  
 
   @UseGuards(AuthGuard('jwt'))
   @Get('user')

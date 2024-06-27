@@ -49,7 +49,7 @@ export class BlogController {
   async findAll(): Promise<Blog[]> {
     return this.blogService.findAll();
   }
-     @Get()
+     @Get("blog")
    getBlogPage(@Res() res: Response) {
      res.sendFile(join(__dirname, '..', '..', 'public', 'blog.html'));
    }

@@ -80,6 +80,8 @@ import { CreateClassDto } from './dto/create-class.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { join } from 'path';
+import { Response } from 'express';
 
 @Controller('classes')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -107,5 +109,9 @@ export class ClassController {
   @Delete(':id')
   delete(@Param('id') id: string) {
     return this.classService.delete(id);
+  }
+  @Get("class")
+  getBlogPage(@Res() res: Response) {
+    res.sendFile(join(__dirname, '..', '..', 'public', 'classes.html'));
   }
 }

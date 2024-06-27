@@ -153,47 +153,25 @@ export class AuthService {
     return { status: 201, message: 'User created successfully', user };
   }
 
-  
-
-  // async login(email: string, password: string) {
-  //   const user = await this.usersService.findOneByEmail(email);
-  //   if (user && await bcrypt.compare(password, user.password)) {
-  //     const payload: JwtPayload = {
-  //       sub: user.username,
-  //       email: user.email,
-  //       username: user.username,
-  //       roles: user.roles,
-  //     };
-  //     const token = this.jwtService.sign(payload);
-  
-  //     // Determine redirect URL based on role
-  //     const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
-  
-  //     return { accessToken: token, redirectUrl };
-  //   }
-  //   return null;
-  // }
-
   async login(email: string, password: string) {
     const user = await this.usersService.findOneByEmail(email);
     if (user && await bcrypt.compare(password, user.password)) {
-        const payload: JwtPayload = {
-            sub: user.username,
-            email: user.email,
-            username: user.username,
-            roles: user.roles,
-        };
-        const token = this.jwtService.sign(payload);
-        const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
-        return { accessToken: token, redirectUrl, user: { firstName: user.firstName, lastName: user.lastName, username: user.username } };
+      const payload: JwtPayload = {
+        sub: user._id.toString(), // Convert ObjectId to string
+        email: user.email,
+        username: user.username,
+        roles: user.roles,
+      };
+      const token = this.jwtService.sign(payload);
+      const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
+      return { accessToken: token, redirectUrl, user: { firstName: user.firstName, lastName: user.lastName, username: user.username } };
     }
     return null;
-}
+  }
 
-  async validateUser(username: string): Promise<User | null> {
-    const user = await this.usersService.findOneByUsername(username);
+  async validateUser(userId: string): Promise<User | null> {
+    const user = await this.usersService.findOneById(userId);
     console.log('AuthService validateUser fetched user:', user); // Debugging statement
     return user;
   }
 }
-

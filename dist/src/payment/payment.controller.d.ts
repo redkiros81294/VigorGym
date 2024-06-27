@@ -1,6 +1,6 @@
 import { PaymentService } from './payment.service';
 import { EnrollmentService } from '../enrollment/enrollment.service';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 export declare class PaymentController {
     private readonly paymentService;
     private readonly enrollmentService;
@@ -64,4 +64,5 @@ export declare class PaymentController {
         message: string;
         data?: undefined;
     }>;
+    getMembershipPage(res: Response): void;
 }

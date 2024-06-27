@@ -22,5 +22,5 @@ export declare class AuthService {
             username: string;
         };
     }>;
-    validateUser(username: string): Promise<User | null>;
+    validateUser(userId: string): Promise<User | null>;
 }

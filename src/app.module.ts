@@ -20,12 +20,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // ChapaModule.register({
-    //   secretKey: 'CHAPUBK_TEST-kgwii0waGksr2iAVqk10sBPErqICvYmn',
-    // }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'), // Ensure 'public' is the correct folder name
-      serveRoot: '/', // Serve static files from the root URL
+      rootPath: join(__dirname, '..', 'public'),
     }),
     ChapaModule.registerAsync({
       imports: [ConfigModule],

@@ -11,7 +11,7 @@ export class MembershipController {
   constructor(private readonly membershipService: MembershipService,
               private readonly chapaService: ChapaService) { }
 
-   @Get()
+   @Get('membership')
   getMembershipPage(@Res() res: Response) {
     res.sendFile(join(__dirname, '..', '..', 'public', 'membership.html'));
   }

@@ -67,7 +67,7 @@ let MembershipController = class MembershipController {
 };
 exports.MembershipController = MembershipController;
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('membership'),
     __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

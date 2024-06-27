@@ -34,7 +34,6 @@ exports.AppModule = AppModule = __decorate([
             }),
             serve_static_1.ServeStaticModule.forRoot({
                 rootPath: (0, path_1.join)(__dirname, '..', 'public'),
-                serveRoot: '/',
             }),
             chapa_nestjs_1.ChapaModule.registerAsync({
                 imports: [config_1.ConfigModule],

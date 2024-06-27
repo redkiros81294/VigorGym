@@ -1,0 +1,369 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    background-color: rgba(38, 38, 37, 0.8);
+    /* position: fixed; */
+    z-index: 100;
+    padding: 0 2em;
+}
+
+body {
+    background-color: #262625;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.logo {
+    margin-left: 0;
+}
+
+.logo a img {
+    width: 50%;
+    height: auto;
+}
+
+.navs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+    background-color: rgba(221, 221, 221, 0.1);
+}
+
+.profile {
+    width: 3.5em;
+    height: 3.5em;
+    border: 3px solid white;
+    border-radius: 50%;
+    margin-right: 2em;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.nav-container {
+    display: none;
+}
+
+/* Sidebar for small screens */
+@media (max-width: 1000px) {
+    .navigation {
+        display: none;
+    }
+
+    .navs {
+        width: 30%;
+        justify-content: space-between;
+    }
+
+    .nav-container {
+        display: block;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(38, 38, 37, 0.8);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        background-color: rgba(221, 221, 221, 0.5);
+        color: black;
+    }
+
+    .sidebar .close-btn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .open-btn {
+        cursor: pointer;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .open-btn:hover {
+        background-color: rgba(221, 221, 221, 0.5);
+        color: black;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile {
+        width: 3em;
+        height: 3em;
+    }
+
+    .navs {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 1em;
+    }
+
+    .open-btn {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .sidebar {
+        display: none;
+    }
+
+    .open-btn {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-color: #5f5b5b;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    background-color: white;
+    margin: 2em 0;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+form label {
+    display: block;
+    margin: 0.5em 0 0.2em;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 0.5em 2em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+#database-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#database-table th, #database-table td {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    text-align: left;
+}
+
+#database-table th {
+    background-color: #f4f4f4;
+}
+
+#posted-blog h3, #posted-blog p {
+    margin: 0;
+}
+
+#posted-background {
+    margin-top: 1em;
+}
+
+.class {
+    display: flex;
+    margin-top: 20px;
+}
+
+.class img {
+    max-width: 300px;
+    margin-right: 20px;
+}
+
+.class-detail {
+    flex: 1;
+}
+
+.class-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.class-description {
+    font-size: 16px;
+}
+
+.schedule {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule li {
+    margin: 5px 0;
+}
+
+.card-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+}
+/* Additional CSS for the membership section */
+
+#membership-cards {
+    margin: 2em 0;
+}
+
+#membership-cards .membership-card {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    background-color: #f9f9f9;
+}
+
+#membership-cards .membership-card h2 {
+    margin-top: 0;
+}
+
+#features-container {
+    margin-bottom: 1em;
+}
+
+#features-container input {
+    display: block;
+    width: calc(100% - 24px);
+    margin-bottom: 0.5em;
+}
+
+button {
+    margin-top: 1em;
+}
+
+button#add-feature {
+    display: inline-block;
+    margin-bottom: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+button#add-feature:hover {
+    background-color: #0056b3;
+}

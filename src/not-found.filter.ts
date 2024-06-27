@@ -8,7 +8,9 @@ export class NotFoundFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
 
-    const path = join(__dirname, '..', 'public', '404.html');
-    response.status(404).sendFile(path);
+    const filePath = join(__dirname, '..', 'public', '404.html');
+    console.log('404.html path:', filePath);
+
+    response.sendFile(filePath);
   }
 }
