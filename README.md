@@ -29,7 +29,7 @@
 ## Installation
 
 ```bash
-$ npm install
+$ npm install --force
 ```
 ## Notice
 for better expreance run ```  Dependencies and DevDependencies   ``` codes on the terminal 
