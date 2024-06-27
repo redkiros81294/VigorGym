@@ -88,32 +88,40 @@ export class UsersController {
     return this.usersService.updateUser(id, updatedUser);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  async getProfile(@Req() req: Request, @Res() res: Response) {
-    try {
-      const user = await this.usersService.findOneByUsername(req.user['username']); // Using req.user.username from JWT token
-      if (!user) {
-        return res.status(HttpStatus.NOT_FOUND).json({ message: 'User not found' });
-      }
-      return res.status(HttpStatus.OK).json(user);
-    } catch (error) {
-      return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Failed to fetch user profile' });
-    }
-  }
   // @UseGuards(JwtAuthGuard)
   // @Get('profile')
-  // async getProfile(@Req() req: any, @Res() res: Response) {
+  // async getProfile(@Req() req: Request, @Res() res: Response) {
   //   try {
-  //     const user = await this.usersService.findOneByUsername(req.user.username); // Using req.user.username from JWT token
+  //     const user = await this.usersService.findOneByUsername(req.user['username']); // Using req.user.username from JWT token
   //     if (!user) {
   //       return res.status(HttpStatus.NOT_FOUND).json({ message: 'User not found' });
   //     }
   //     return res.status(HttpStatus.OK).json(user);
   //   } catch (error) {
-  //     console.error('Failed to fetch user profile:', error); // Debugging statement
   //     return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Failed to fetch user profile' });
   //   }
   // }
+  @UseGuards(JwtAuthGuard)
+@Get('profile')
+async getProfile(@Req() req: Request, @Res() res: Response) {
+    try {
+        const user = await this.usersService.findOneByUsername(req.user['username']);
+        if (!user) {
+            return res.status(HttpStatus.NOT_FOUND).json({ message: 'User not found' });
+        }
+        return res.status(HttpStatus.OK).json({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            username: user.username,
+            roles: user.roles,
+            email: user.email,
+            // Add more fields if needed
+        });
+    } catch (error) {
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Failed to fetch user profile' });
+    }
+}
+
+  
 
 }

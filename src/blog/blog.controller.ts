@@ -27,11 +27,13 @@
   
 // }
 
-import { Controller, Post, Body, Get, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, Post, Body, Get, UploadedFile, UseInterceptors, Res } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { BlogService } from './blog.service';
 import { Blog } from './schemas/blog.schema';
+import { join } from 'path';
+import { Response } from 'express';
 
 @Controller('blogs')
 export class BlogController {
@@ -47,4 +49,8 @@ export class BlogController {
   async findAll(): Promise<Blog[]> {
     return this.blogService.findAll();
   }
+     @Get()
+   getBlogPage(@Res() res: Response) {
+     res.sendFile(join(__dirname, '..', '..', 'public', 'blog.html'));
+   }
 }

@@ -39,7 +39,13 @@ let UsersController = class UsersController {
             if (!user) {
                 return res.status(common_1.HttpStatus.NOT_FOUND).json({ message: 'User not found' });
             }
-            return res.status(common_1.HttpStatus.OK).json(user);
+            return res.status(common_1.HttpStatus.OK).json({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                username: user.username,
+                roles: user.roles,
+                email: user.email,
+            });
         }
         catch (error) {
             return res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Failed to fetch user profile' });

@@ -153,6 +153,8 @@ export class AuthService {
     return { status: 201, message: 'User created successfully', user };
   }
 
+  
+
   // async login(email: string, password: string) {
   //   const user = await this.usersService.findOneByEmail(email);
   //   if (user && await bcrypt.compare(password, user.password)) {
@@ -160,9 +162,14 @@ export class AuthService {
   //       sub: user.username,
   //       email: user.email,
   //       username: user.username,
+  //       roles: user.roles,
   //     };
   //     const token = this.jwtService.sign(payload);
-  //     return { accessToken: token };
+  
+  //     // Determine redirect URL based on role
+  //     const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
+  
+  //     return { accessToken: token, redirectUrl };
   //   }
   //   return null;
   // }
@@ -170,21 +177,19 @@ export class AuthService {
   async login(email: string, password: string) {
     const user = await this.usersService.findOneByEmail(email);
     if (user && await bcrypt.compare(password, user.password)) {
-      const payload: JwtPayload = {
-        sub: user.username,
-        email: user.email,
-        username: user.username,
-        roles: user.roles,
-      };
-      const token = this.jwtService.sign(payload);
-  
-      // Determine redirect URL based on role
-      const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
-  
-      return { accessToken: token, redirectUrl };
+        const payload: JwtPayload = {
+            sub: user.username,
+            email: user.email,
+            username: user.username,
+            roles: user.roles,
+        };
+        const token = this.jwtService.sign(payload);
+        const redirectUrl = user.roles.includes('admin') ? '/admins.html' : '/index.html';
+        return { accessToken: token, redirectUrl, user: { firstName: user.firstName, lastName: user.lastName, username: user.username } };
     }
     return null;
-  }
+}
+
   async validateUser(username: string): Promise<User | null> {
     const user = await this.usersService.findOneByUsername(username);
     console.log('AuthService validateUser fetched user:', user); // Debugging statement
